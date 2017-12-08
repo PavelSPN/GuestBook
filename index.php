@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contain php function for start main.php page.
+ * Contains php function for start main.php page.
  */
 
 print "<html><head> 
