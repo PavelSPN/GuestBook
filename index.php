@@ -4,7 +4,14 @@
  * @file
  * Contains php function for start main.php page.
  */
+?>
 
-print "<html><head> 
-  <meta HTTP-EQUIV='Refresh' CONTENT='0; URL=templates/main.php?page=1'> 
-  </head></html>";
+<?php define('GUESTBOOK_ROOT', getcwd()); ?>
+
+<?php
+// Enable display all errors.
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+?>
+
+<?php include_once 'templates/html.php'; ?>
