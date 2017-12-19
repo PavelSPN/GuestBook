@@ -5,17 +5,41 @@
  * Contains sql connection functions.
  */
 
-// Name DataBase.
-$dbhost = "mysite";
-// DataBase user.
-$dbusername = "root";
-// Password to DataBase.
-$dbpass = "";
-// Database name.
-$dbname = "mybase";
+/**
+ * Mysql connection constants.
+ */
+define('GUESTBOOK_SQL_HOST', '');
+define('GUESTBOOK_SQL_USER', 'root');
+define('GUESTBOOK_SQL_PASS', 'root');
+define('GUESTBOOK_SQL_DBNAME', 'guestbook');
 
-$link = mysql_connect($dbhost, $dbusername, $dbpass);
-mysql_select_db("mybase") or die(mysql_error());
+/**
+ * Connects to db.
+ *
+ * @param $link
+ *   Link to db connection.
+ */
+function guestbook_sql_connect(&$link) {
+  $link = mysqli_connect(GUESTBOOK_SQL_HOST, GUESTBOOK_SQL_USER, GUESTBOOK_SQL_PASS, GUESTBOOK_SQL_DBNAME);
+  if (!$link) {
+    die('Connection failed: ' . mysqli_error($link));
+  }
+  mysqli_select_db($link, GUESTBOOK_SQL_DBNAME);
+}
+
+/**
+ * Returns messages.
+ *
+ * @param string $order
+ * @return bool
+ */
+function guestbook_get_messages($order = 'DESC') {
+  guestbook_sql_connect($link);
+  $query = mysqli_prepare($link, 'SELECT * FROM {share} ORDER BY id :order');
+  $query->bind_param(':order', $order);
+  $result = $query->execute();
+  return $result;
+}
 
 /**
  * Select all from 'share' by id from the end.

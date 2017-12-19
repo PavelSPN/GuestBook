@@ -4,18 +4,42 @@ body {
   padding: 0px;
 }
 
+/* Block login styles. */
 .blocklogin {
-  width: 300px;
-  height: 100px;
-  margin-top: 10px;
-  text-align: right;
+  margin-top: 2em;
+  margin-right: 2em;
   background: #87CEFA;
-  padding: 5px;
-  padding-right: 20px;
-  border: solid 1px black;
+  padding: 1.5em;
+  border: solid 1px #49b5f9;
   float: right;
+  border-radius: 0.5em;
+  color: #245879;
 }
 
+.blocklogin input {
+  float: right;
+  padding: 5px;
+}
+
+.blocklogin .submit {
+  clear: both;
+  margin-top: 0.5em;
+}
+
+.blocklogin label {
+  display: inline-block;
+  padding: 5px 15px 5px 0;
+}
+
+.blocklogin form > div {
+  margin-bottom: 5px;
+}
+
+.blocklogin div + div > label {
+  float: left;
+}
+
+/* Block message styles. */
 .blockmessagemain {
   width: 100%;
   height: 350px;
