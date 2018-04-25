@@ -9,7 +9,6 @@
 ?>
 <?php
 guestbook_preprocess_theme($vars);
-//var_dump($vars['messages']);
 ?>
 
 <html>
