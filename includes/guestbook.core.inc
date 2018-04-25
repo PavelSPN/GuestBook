@@ -111,15 +111,18 @@ function guestbook_user_is_logged() {
  */
 function guestbook_menu_mapping() {
   return array(
+    // @todo Create callback for login.
     'login' => array(
       'page callback' => 'guestbook_login',
     ),
     // @todo Create callback for logout.
     'logout' => array(
       'page callback' => 'guestbook_logout',
+    // @todo Create callback for delete message.
     ),
     'delete_message' => array(
       'page callback' => 'guestbook_delete_message',
+    // @todo Create callback for save message.
     ),
     'guestbook_sm' => array(
       'page callback' => 'guestbook_save_message',
