@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9116938b-3b78-49c7-b6bc-ba014dd7a63f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/guestbook.css" afterPath="$PROJECT_DIR$/css/guestbook.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/guestbook.core.inc" afterPath="$PROJECT_DIR$/includes/guestbook.core.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/guestbook.sql.inc" afterPath="$PROJECT_DIR$/includes/guestbook.sql.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/includes/guestbook.theme.inc" afterPath="$PROJECT_DIR$/includes/guestbook.theme.inc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/html.php" afterPath="$PROJECT_DIR$/templates/html.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +22,18 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+            <state relative-caret-position="68">
+              <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="guestbook.core.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/guestbook.core.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="244" column="45" lean-forward="true" selection-start-line="244" selection-start-column="45" selection-end-line="244" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -27,8 +42,8 @@
       <file leaf-file-name="html.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/html.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="85">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,8 +52,8 @@
       <file leaf-file-name="guestbook.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/guestbook.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
+            <state relative-caret-position="130">
+              <caret line="236" column="13" lean-forward="false" selection-start-line="236" selection-start-column="13" selection-end-line="236" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -47,8 +62,8 @@
       <file leaf-file-name="guestbook.theme.inc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/guestbook.theme.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="238">
+              <caret line="17" column="104" lean-forward="false" selection-start-line="17" selection-start-column="104" selection-end-line="17" selection-end-column="104" />
               <folding />
             </state>
           </provider>
@@ -57,27 +72,18 @@
       <file leaf-file-name="guestbook.sql.inc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/guestbook.sql.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1394">
-              <caret line="85" column="24" lean-forward="false" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+            <state relative-caret-position="-559">
+              <caret line="197" column="3" lean-forward="false" selection-start-line="197" selection-start-column="3" selection-end-line="197" selection-end-column="3" />
               <folding>
-                <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-                <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-                <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-                <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-                <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-                <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-                <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
+                <marker date="1529918045380" expanded="true" signature="1145:1179" ph="SELECT * FRO... share" />
+                <marker date="1529918045380" expanded="true" signature="1393:1427" ph="SELECT * FRO... users" />
+                <marker date="1529918045380" expanded="true" signature="1746:1780" ph="SELECT * FRO... users" />
+                <marker date="1529918045380" expanded="true" signature="2154:2208" ph="SELECT * FRO... users" />
+                <marker date="1529918045380" expanded="true" signature="2477:2514" ph="SELECT COUNT... " />
+                <marker date="1529918045380" expanded="true" signature="3807:3895" ph="INSERT INTO `share`... " />
+                <marker date="1529918045380" expanded="true" signature="4575:4628" ph="UPDATE `shar... " />
+                <marker date="1529918045380" expanded="true" signature="6039:6070" ph="DELETE FROM " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="guestbook.core.inc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/guestbook.core.inc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
-              <caret line="112" column="15" lean-forward="true" selection-start-line="112" selection-start-column="15" selection-end-line="112" selection-end-column="15" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -92,6 +98,24 @@
       <find>guestbook_logout</find>
       <find>guestbook_get_messages();</find>
       <find>guestbook_get_messages</find>
+      <find>push_button</find>
+      <find>guestbook_request_uri</find>
+      <find>guestbook_save_message</find>
+      <find>удал</find>
+      <find>Guestbook_user_message_window</find>
+      <find>guestbook_sm</find>
+      <find>$uri[3]</find>
+      <find>удалить</find>
+      <find>Do not store password in session</find>
+      <find>param</find>
+      <find>guestbook_curr_link</find>
+      <find>$last</find>
+      <find>$y</find>
+      <find>$page_last</find>
+      <find>$page =</find>
+      <find>$curr_link</find>
+      <find>pages</find>
+      <find>textarea</find>
     </findStrings>
     <dirStrings>
       <dir>E:\server\OSPanel\domains\GuestBook</dir>
@@ -107,10 +131,13 @@
         <option value="$PROJECT_DIR$/css/gbstyle.css" />
         <option value="$PROJECT_DIR$/includes/sql_connection.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/includes/guestbook.core.inc" />
+        <option value="$PROJECT_DIR$/includes/pagination new.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/includes/pagination2.php" />
         <option value="$PROJECT_DIR$/css/guestbook.css" />
-        <option value="$PROJECT_DIR$/includes/guestbook.theme.inc" />
+        <option value="$PROJECT_DIR$/includes/guestbook.core.inc" />
         <option value="$PROJECT_DIR$/includes/guestbook.sql.inc" />
+        <option value="$PROJECT_DIR$/includes/guestbook.theme.inc" />
         <option value="$PROJECT_DIR$/templates/html.php" />
       </list>
     </option>
@@ -151,14 +178,29 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="GuestBook" type="b2602c69:ProjectViewProjectNode" />
               <item name="GuestBook" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="GuestBook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GuestBook" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="GuestBook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GuestBook" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="includes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="GuestBook" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GuestBook" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -167,7 +209,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../modules/php/PHP-5.6/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistoryKey" value="guestbook_get_messages&#9;null&#9;null" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
@@ -230,11 +272,13 @@
       <workItem from="1522999139326" duration="30124000" />
       <workItem from="1523785572745" duration="2048000" />
       <workItem from="1524645097062" duration="766000" />
+      <workItem from="1528733238110" duration="18144000" />
+      <workItem from="1529397641784" duration="72677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171132000" />
+    <option name="totallyTimeSpent" value="261953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -242,31 +286,21 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18305598" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12054329" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2631579" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2631579" sideWeight="0.7753404" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18305598" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2631579" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,51 +311,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="31" />
+      <option name="time" value="37" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/includes/guestbook.theme.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="46" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="66" column="39" lean-forward="false" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/guestbook.core.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2482">
-          <caret line="146" column="29" lean-forward="true" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/guestbook.sql.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="88" column="58" lean-forward="true" selection-start-line="88" selection-start-column="58" selection-end-line="88" selection-end-column="58" />
-          <folding>
-            <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-            <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-            <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -351,13 +345,14 @@
         <state relative-caret-position="714">
           <caret line="45" column="2" lean-forward="false" selection-start-line="45" selection-start-column="2" selection-end-line="45" selection-end-column="2" />
           <folding>
-            <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-            <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-            <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
+            <marker date="1529918045380" expanded="true" signature="1145:1179" ph="SELECT * FRO... share" />
+            <marker date="1529918045380" expanded="true" signature="1393:1427" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="1746:1780" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2154:2208" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2477:2514" ph="SELECT COUNT... " />
+            <marker date="1529918045380" expanded="true" signature="3807:3895" ph="INSERT INTO `share`... " />
+            <marker date="1529918045380" expanded="true" signature="4575:4628" ph="UPDATE `shar... " />
+            <marker date="1529918045380" expanded="true" signature="6039:6070" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -399,13 +394,14 @@
         <state relative-caret-position="918">
           <caret line="57" column="27" lean-forward="false" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="29" />
           <folding>
-            <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-            <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-            <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
+            <marker date="1529918045380" expanded="true" signature="1145:1179" ph="SELECT * FRO... share" />
+            <marker date="1529918045380" expanded="true" signature="1393:1427" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="1746:1780" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2154:2208" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2477:2514" ph="SELECT COUNT... " />
+            <marker date="1529918045380" expanded="true" signature="3807:3895" ph="INSERT INTO `share`... " />
+            <marker date="1529918045380" expanded="true" signature="4575:4628" ph="UPDATE `shar... " />
+            <marker date="1529918045380" expanded="true" signature="6039:6070" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -447,13 +443,14 @@
         <state relative-caret-position="969">
           <caret line="57" column="27" lean-forward="false" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="29" />
           <folding>
-            <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-            <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-            <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
+            <marker date="1529918045380" expanded="true" signature="1145:1179" ph="SELECT * FRO... share" />
+            <marker date="1529918045380" expanded="true" signature="1393:1427" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="1746:1780" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2154:2208" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2477:2514" ph="SELECT COUNT... " />
+            <marker date="1529918045380" expanded="true" signature="3807:3895" ph="INSERT INTO `share`... " />
+            <marker date="1529918045380" expanded="true" signature="4575:4628" ph="UPDATE `shar... " />
+            <marker date="1529918045380" expanded="true" signature="6039:6070" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -487,13 +484,14 @@
         <state relative-caret-position="918">
           <caret line="57" column="27" lean-forward="false" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="29" />
           <folding>
-            <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-            <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-            <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
+            <marker date="1529918045380" expanded="true" signature="1145:1179" ph="SELECT * FRO... share" />
+            <marker date="1529918045380" expanded="true" signature="1393:1427" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="1746:1780" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2154:2208" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2477:2514" ph="SELECT COUNT... " />
+            <marker date="1529918045380" expanded="true" signature="3807:3895" ph="INSERT INTO `share`... " />
+            <marker date="1529918045380" expanded="true" signature="4575:4628" ph="UPDATE `shar... " />
+            <marker date="1529918045380" expanded="true" signature="6039:6070" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -543,13 +541,14 @@
         <state relative-caret-position="833">
           <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="32" />
           <folding>
-            <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-            <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-            <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
+            <marker date="1529918045380" expanded="true" signature="1145:1179" ph="SELECT * FRO... share" />
+            <marker date="1529918045380" expanded="true" signature="1393:1427" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="1746:1780" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2154:2208" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2477:2514" ph="SELECT COUNT... " />
+            <marker date="1529918045380" expanded="true" signature="3807:3895" ph="INSERT INTO `share`... " />
+            <marker date="1529918045380" expanded="true" signature="4575:4628" ph="UPDATE `shar... " />
+            <marker date="1529918045380" expanded="true" signature="6039:6070" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -599,13 +598,14 @@
         <state relative-caret-position="833">
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="58" selection-end-column="17" />
           <folding>
-            <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-            <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-            <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
+            <marker date="1529918045380" expanded="true" signature="1145:1179" ph="SELECT * FRO... share" />
+            <marker date="1529918045380" expanded="true" signature="1393:1427" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="1746:1780" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2154:2208" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2477:2514" ph="SELECT COUNT... " />
+            <marker date="1529918045380" expanded="true" signature="3807:3895" ph="INSERT INTO `share`... " />
+            <marker date="1529918045380" expanded="true" signature="4575:4628" ph="UPDATE `shar... " />
+            <marker date="1529918045380" expanded="true" signature="6039:6070" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -633,13 +633,7 @@
     <entry file="file://$PROJECT_DIR$/includes/functions.php" />
     <entry file="file://$PROJECT_DIR$/templates/main.php" />
     <entry file="file://$PROJECT_DIR$/includes/sql_connection.php" />
-    <entry file="file://E:/Программирование/GuestBook - резерв/includes/sql_connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://E:/Программирование/GuestBook - резерв/includes/sql_connection.php" />
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/mysqli/mysqli.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-136">
@@ -650,56 +644,89 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        <state relative-caret-position="68">
+          <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/pagination new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="31" column="14" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/pagination2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../pagination new.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="6" selection-end-line="50" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/guestbook.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
+        <state relative-caret-position="130">
+          <caret line="236" column="13" lean-forward="false" selection-start-line="236" selection-start-column="13" selection-end-line="236" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/guestbook.theme.inc">
+    <entry file="file://$PROJECT_DIR$/includes/guestbook.core.inc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="237">
+          <caret line="244" column="45" lean-forward="true" selection-start-line="244" selection-start-column="45" selection-end-line="244" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/includes/guestbook.sql.inc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="85" column="24" lean-forward="false" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+        <state relative-caret-position="-559">
+          <caret line="197" column="3" lean-forward="false" selection-start-line="197" selection-start-column="3" selection-end-line="197" selection-end-column="3" />
           <folding>
-            <marker date="1524049479318" expanded="true" signature="1220:1254" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="1472:1506" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="1875:1929" ph="SELECT * FRO... users" />
-            <marker date="1524049479318" expanded="true" signature="2198:2219" ph="SELECT * FRO... share" />
-            <marker date="1524049479318" expanded="true" signature="2870:2958" ph="INSERT INTO `share`... " />
-            <marker date="1524049479318" expanded="true" signature="3537:3590" ph="UPDATE `shar... " />
-            <marker date="1524049479318" expanded="true" signature="4178:4209" ph="DELETE FROM " />
+            <marker date="1529918045380" expanded="true" signature="1145:1179" ph="SELECT * FRO... share" />
+            <marker date="1529918045380" expanded="true" signature="1393:1427" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="1746:1780" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2154:2208" ph="SELECT * FRO... users" />
+            <marker date="1529918045380" expanded="true" signature="2477:2514" ph="SELECT COUNT... " />
+            <marker date="1529918045380" expanded="true" signature="3807:3895" ph="INSERT INTO `share`... " />
+            <marker date="1529918045380" expanded="true" signature="4575:4628" ph="UPDATE `shar... " />
+            <marker date="1529918045380" expanded="true" signature="6039:6070" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/guestbook.core.inc">
+    <entry file="file://$PROJECT_DIR$/includes/guestbook.theme.inc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="112" column="15" lean-forward="true" selection-start-line="112" selection-start-column="15" selection-end-line="112" selection-end-column="15" />
+        <state relative-caret-position="238">
+          <caret line="17" column="104" lean-forward="false" selection-start-line="17" selection-start-column="104" selection-end-line="17" selection-end-column="104" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="85">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
         </state>
       </provider>

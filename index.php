@@ -16,7 +16,6 @@ require_once GUESTBOOK_ROOT . '/includes/guestbook.sql.inc';
 require_once GUESTBOOK_ROOT . '/includes/guestbook.theme.inc';
 
 guestbook_session_start();
-//Menu::handler();
 guestbook_menu_handler();
 
 require_once GUESTBOOK_ROOT . '/templates/html.php';

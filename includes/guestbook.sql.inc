@@ -38,17 +38,17 @@ function guestbook_sql_connect() {
  * @return array
  */
 function guestbook_get_messages($order = 'DESC') {
-  if (!isset($_GET['guestbook_curr_link'])) {
-    $_GET['guestbook_curr_link'] = 1;
+  if (!isset($_GET['page'])) {
+    $_GET['page'] = 1;
   }
   $all = guestbook_get_page();
   $pages = ceil($all / 10);
-  if ($_GET['guestbook_curr_link'] == 1) {
+  if ($_GET['page'] == 1) {
     $gt = 0;
   }
   else {
-    if ($_GET['guestbook_curr_link'] <= $pages) {
-      $gt = ($_GET['guestbook_curr_link'] * 10) - 10;
+    if ($_GET['page'] <= $pages) {
+      $gt = ($_GET['page'] * 10) - 10;
     }
     else {
       $gt = 0;
@@ -62,7 +62,7 @@ function guestbook_get_messages($order = 'DESC') {
 /**
  * Returns user name.
  *
- * @param integer $uid
+ * @param int $uid
  * @return string.
  */
 function guestbook_get_name($uid) {
@@ -75,10 +75,25 @@ function guestbook_get_name($uid) {
 }
 
 /**
+ * Returns user info by id.
+ *
+ * @param int $id
+ * @return array.
+ */
+function guestbook_get_info($id) {
+  $query = mysqli_prepare(guestbook_sql_connect(), 'SELECT * FROM `share` WHERE id = ?');
+  $query->bind_param('i', $id);
+  $query->execute();
+  $result = $query->get_result();
+  $result = $result->fetch_assoc();
+  return $result;
+}
+
+/**
  * Returns user data.
  *
- * @param $login
- * @param $passw
+ * @param string $login
+ * @param string $passw
  * @return array
  */
 function guestbook_get_user_data($login, $passw) {
@@ -96,8 +111,8 @@ function guestbook_get_user_data($login, $passw) {
  * @return int.
  */
 function guestbook_get_page() {
-  $query = mysqli_query(guestbook_sql_connect(), 'SELECT * FROM `share`');
-  return $query->num_rows;
+  $query = mysqli_query(guestbook_sql_connect(), "SELECT COUNT(*) as count FROM `share`");
+  return $query->fetch_row()[0];
 }
 
 /**
@@ -107,67 +122,131 @@ function guestbook_get_page() {
  *
  * @param bool $new
  */
-function guestbook_save_message($new = TRUE) {
-  if (isset($_GET['edit']) && $_GET['edit'] == 1) {
-    $new = FALSE;
+function guestbook_save_message($uri) {
+  // Get info from header.
+  if (isset($uri[3])) {
+    $id = $uri[3];
   }
-  if ($new == TRUE) {
-    if (isset($_POST['Guestbook_user_message_window']) && $_POST['Guestbook_user_message_window'] != NULL) {
-      $message = $_POST['Guestbook_user_message_window'];
-      $uid = $_SESSION['user']['id'];
-      $time = Time();
-      $session_cookie = $_SESSION['user']['session_cookie'];
-      $query = mysqli_prepare(guestbook_sql_connect(), 'INSERT INTO `share`(id, date, message, uid, session_cookie) VALUES(\'NULL\', ?, ?, ?, ?)');
-      $query->bind_param('issi', $time, $message, $uid, $session_cookie);
-      $query->execute();
-      if (isset($_SESSION['guestbook_curr_link'])) {
-        $gcl = $_SESSION['guestbook_curr_link'];
-        guestbook_goto($gcl);
+  if (isset($uri[4])) {
+    $page = $uri[4];
+  }
+  // Check user is logged.
+  $user_is_logged = guestbook_user_is_logged();
+  if ($user_is_logged === TRUE) {
+    // Check id.
+    if (isset($id)) {
+      // Get info by id.
+      $title = guestbook_get_info($id);
+      if ($title['id']) {
+        $new = FALSE;
+      }
+      else {
+        // Show warning message if 'id' does not exist in database.
+        try {
+          throw new Exception("Сообщение не существует. Вернуться на главную страницу: " . "<a href='/'> Главная </a> ");
+        }catch (Exception $e) {
+          echo $e->getMessage();
+        }
+      }
+    }
+    else {
+      $new = TRUE;
+    }
+    // Save message if new = true.
+    if ($new == TRUE) {
+      if (isset($_POST['message']) && $_POST['message'] != NULL) {
+        $message = $_POST['message'];
+        $uid = $_SESSION['user']['id'];
+        $time = Time();
+        $session_cookie = $_SESSION['user']['session_cookie'];
+        $query = mysqli_prepare(guestbook_sql_connect(), 'INSERT INTO `share`(id, date, message, uid, session_cookie) VALUES(\'NULL\', ?, ?, ?, ?)');
+        $query->bind_param('issi', $time, $message, $uid, $session_cookie);
+        $query->execute();
+        // Checking number of page in header.
+        if (isset($page)) {
+          $path = '/' . $page;
+          // Redirect to page.
+          guestbook_goto($path);
+        }
+        guestbook_goto();
       }
       guestbook_goto();
     }
-    guestbook_goto();
-  }
-  if ($new == FALSE) {
-    if (isset($_POST['Guestbook_user_message_window']) && isset($_GET['id'])) {
-      $message = $_POST['Guestbook_user_message_window'];
-      $uid = $_SESSION['user']['id'];
-      $id = $_GET['id'];
-      $query = mysqli_prepare(guestbook_sql_connect(), 'UPDATE `share` SET message = ? , uid = ? WHERE id = ? ');
-      $query->bind_param('ssi', $message, $uid, $id);
-      $query->execute();
-      if (isset($_GET['guestbook_curr_link'])) {
-        header('Location: /?guestbook_curr_link=' . $_GET['guestbook_curr_link']);
+    // Edit message if new = false.
+    else {
+      // Check message is not empty.
+      if (isset($_POST['message'])) {
+        $message = $_POST['message'];
+        // Get user id.
+        $uid = $_SESSION['user']['id'];
+        // Prepare and execute message editing.
+        $query = mysqli_prepare(guestbook_sql_connect(), 'UPDATE `share` SET message = ? , uid = ? WHERE id = ? ');
+        $query->bind_param('ssi', $message, $uid, $id);
+        $query->execute();
+        // Checking number of page in header.
+        if (isset($page)) {
+          $path = '/' . $page;
+          // Redirect to page.
+          guestbook_goto($path);
+        }
+        else {
+          guestbook_goto();
+        }
       }
-      else {
-        guestbook_goto();
-      }
-
+      guestbook_goto();
     }
   }
+  // Redirect to main page if user is not logged.
+  guestbook_goto();
 }
 
 /**
  * Deletes messages.
  *
- * @param bool $new
+ * @param array $uri
  */
-function guestbook_delete_message() {
-  if (isset($_GET['edit']) && $_GET['edit'] == 2) {
-    if (isset($_GET['id'])) {
-      $id = $_GET['id'];
+function guestbook_delete_message($uri) {
+  // Get info from header.
+  if (isset($uri[3])) {
+    $id = $uri[3];
+  }
+  if (isset($uri[4])) {
+    $page = $uri[4];
+  }
+  // Check user is logged.
+  $user_is_logged = guestbook_user_is_logged();
+  if ($user_is_logged === TRUE) {
+    // Check id.
+    if (isset($id)) {
+      // Get info by id.
+      $title = guestbook_get_info($id);
+      // Show warning message if 'id' does not exist in database.
+      try {
+        if (!$title['id']) {
+          throw new Exception("Сообщение не существует. Вернуться на главную страницу: " . "<a href='/'> Главная </a> ");
+        }
+      }catch (Exception $e) {
+        echo $e->getMessage();
+      }
+      // Checking cookies, that would not delete someone else's message.
+      if ($_SESSION['user']['session_cookie'] == $title['session_cookie']) {
+        // Deleting message.
+        $query = mysqli_prepare(guestbook_sql_connect(), 'DELETE FROM `share` WHERE id= ? ');
+        $query->bind_param('i', $id);
+        $query->execute();
+      }
+    }
+    // Checking number of page in header.
+    if (isset($page)) {
+      $path = '/' . $page;
+      // Redirect to page.
+      guestbook_goto($path);
     }
     else {
-      header('Location: /');
-    }
-    $query = mysqli_prepare(guestbook_sql_connect(), 'DELETE FROM `share` WHERE id= ? ');
-    $query->bind_param('i', $id);
-    $query->execute();
-    if (isset($_GET['guestbook_curr_link'])) {
-      header('Location: /?guestbook_curr_link=' . $_GET['guestbook_curr_link']);
-    }
-    else {
-      header('Location: /');
+      guestbook_goto();
     }
   }
+  // Redirect to main page if user is not logged.
+  guestbook_goto();
 }
+

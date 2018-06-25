@@ -13,8 +13,7 @@
  * @param $vars
  */
 function guestbook_preprocess_theme(&$vars) {
-  $vars['messages'] = guestbook_get_messages(); //записывает все сообщения из книги.
-  $vars['is_logged'] = guestbook_user_is_logged(); //записывается true если пользователь залогинен.
-  $vars['name'] = isset($_SESSION['user']['name']) ? $_SESSION['user']['name'] : NULL; //краткая запись if.
-  //если isset($_SESSION['user']['name']) существует, то записать значение $_SESSION['user']['name'] иначе NULL.
+  $vars['messages'] = guestbook_get_messages(); // Get messages from database.
+  $vars['is_logged'] = guestbook_user_is_logged(); // True if user is logged.
+  $vars['name'] = isset($_SESSION['user']['name']) ? $_SESSION['user']['name'] : NULL; // Get user name.
 }

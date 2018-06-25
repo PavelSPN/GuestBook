@@ -25,20 +25,9 @@ function guestbook_request_uri() {
     }
   }
   // Prevent multiple slashes to avoid cross site requests via the Form API.
-  $uri = ltrim($uri, '/');
   $uri = preg_split("[/]", $uri);
-  $uri2 = $uri[0];
-  // redirect $_GET
-  if (isset ($uri[1])) {
-      $_GET['edit'] = $uri[1];
-  }
-  if (isset ($uri[2])) {
-    $_GET['id'] = $uri[2];
-  }
-  if (isset ($uri[3])) {
-    $_GET['guestbook_curr_link'] = $uri[3];
-  }
-  return $uri2;
+  $uri[1] = '/' . $uri[1];
+  return $uri;
 }
 
 /**
@@ -111,34 +100,39 @@ function guestbook_user_is_logged() {
  */
 function guestbook_menu_mapping() {
   return array(
-    // @todo Create callback for login.
-    'login' => array(
+    // @todo Create callback.
+    '/login' => array(
       'page callback' => 'guestbook_login',
     ),
-    // @todo Create callback for logout.
-    'logout' => array(
+    '/logout' => array(
       'page callback' => 'guestbook_logout',
-    // @todo Create callback for delete message.
     ),
-    'delete_message' => array(
+    '/message/delete' => array(
       'page callback' => 'guestbook_delete_message',
-    // @todo Create callback for save message.
     ),
-    'guestbook_sm' => array(
+    '/message/save' => array(
       'page callback' => 'guestbook_save_message',
     ),
-  );
+   );
 }
 
 /**
  * Menu handler.
  */
 function guestbook_menu_handler() {
+  $uri = guestbook_request_uri();
+  // Get info from header.
+  if (isset($uri[1])) {
+    $key = $uri[1];
+  }
+  if (isset($uri[2])) {
+    $key = $uri[1] . '/' . $uri[2];
+  }
   $mapping = guestbook_menu_mapping();
-  if (isset($mapping[guestbook_request_uri()])) {
-    $menu = $mapping[guestbook_request_uri()];
+  if (isset($mapping[$key])) {
+    $menu = $mapping[$key];
     if (function_exists($menu['page callback'])) {
-      $menu['page callback']();
+      $menu['page callback']($uri);
     }
   }
 }
@@ -152,16 +146,15 @@ function guestbook_login() {
   // Verify that user is exist and verified successfully.
   $user_data = guestbook_get_user_data($_POST['login'], $_POST['password']);
   if (empty($user_data)) {
-    guestbook_goto('/?guestbook_curr_link=1');
+    guestbook_goto();
   }
   // Do not store password in session.
-  //unset($user_data['password']);
+  unset($user_data['password']);
   $user = $user_data + array(
       'time'=> time(),
       'sid' => session_id(),
       'session_cookie' => rand() + rand(),
-    );
-
+      );
   $_SESSION['user'] = $user;
   guestbook_goto();
 }
@@ -170,14 +163,8 @@ function guestbook_login() {
  * User logout callback.
  */
 function guestbook_logout() {
-  global $user;
-  // Verify that we have all necessary POST data.
-  if (isset($_POST['signout'])) {
-    unset ($_SESSION['user']);
-    unset ($_SESSION['time']);
     guestbook_unsetcookie();
     guestbook_goto();
-   }
 }
 
 /**
@@ -191,91 +178,73 @@ function guestbook_setcookie() {
  * Unset a cookie.
  */
 function guestbook_unsetcookie() {
+  unset ($_SESSION['user']);
+  unset ($_SESSION['time']);
   setcookie('guestbook_cookie_id');
 }
 
 /**
  * Pagination.
  *
- * Create buttons to switch pages.
- * Used $_GET['guestbook_curr_link'] as current page.
+ * Create array of pages.
+ * Used $_GET['page'] as current page.
  *
- * @param $lim
- *  Integer. Number of displayed links before and after the current page number.
- * @param $prev
- *  Integer. Number of displayed links before and after the current page number.
- * @param $link2
- *  A string containing a part of the URL used to create links to other pages.
+ * @param int $lim
+ *  Number of displayed messages on the page.
+ * @param int $prev
+ *  Number of displayed pages before and after the current page number.
+ * @param int $total_rows
+ *  Number of rows in the database.
+ * @return array.
  */
-function pagination($lim = 10, $prev = 3, $link2 = '/'){
-  // Check that the displayed first and last pages do not exceed the numbering limits.
-  $all = guestbook_get_page();
-  if (!isset($_GET['guestbook_curr_link'])) {
-    $_GET['guestbook_curr_link'] = 1;
+function pagination($lim = 10, $prev = 2, $total_rows = 1){
+  $pages = array();
+  // Count the total number of pages.
+  $total_pages = (int) ceil($total_rows / $lim);
+  if (guestbook_get_page()) {
+    $total_pages = (int) ceil(guestbook_get_page() / $lim);
   }
-  if ($_GET['guestbook_curr_link'] > ceil($all / $lim)) {
-    $_GET['guestbook_curr_link'] = 1;
+  // Set the current page number.
+  if (!isset($_GET['page']) || ($_GET['page'] > $total_pages) || ($_GET['page'] < 1)) {
+    $_GET['page'] = 1;
   }
-  $curr_link = $_GET['guestbook_curr_link'];
-  $first = $curr_link - $prev;
-  if ($first <= 1) {
-    $first = 1;
+  $page = (int) $_GET['page'];
+  // Calculating the range of pages.
+  if ($page + $prev >= $total_pages) {
+      $page_last = $total_pages;
   }
-  $last = $curr_link + $prev;
-  if ($last > ceil($all / $lim)) {
-    $last = ceil($all / $lim);
-  }
-  // first page
-  $pervaya = "<a href='{$link2}?guestbook_curr_link=1'>-первая-</a> ";
-  print $pervaya;
-  if ($curr_link <= 1) {
-    $i_pred = $curr_link = 1;
+  else if ($page + $prev <= ($prev *2) + 1) {
+    $page_last = ($prev *2) + 1;
   }
   else {
-    $i_pred = $curr_link - 1;
-    $pred = "<a href='{$link2}?guestbook_curr_link={$i_pred}'> -предыдущая- </a> ";
-    print $pred;
+    $page_last = $page + $prev;
   }
-  $y = $first;
-  if ($first > 10) {
-    print "<a href='{$link2}?guestbook_curr_link={$y}'>...</a> ";
+  if ($page - $prev <= 1) {
+    $page_first = 1;
   }
   else {
-    for($i = 2; $i < $first; $i++) {
-      print "<a href='{$link2}?guestbook_curr_link={$i}'>$i</a> ";
-    }
+    $page_first = $page_last - ($prev *2);
   }
-  // Display the specified range: current page + - $ prev.
-  for($i = $first; $i < $last + 1; $i++) {
-    //If the current page is displayed, then it is assigned a special style css
-    if($i == $curr_link) {
-      ?>
-      <span><?php print $i; ?></span>
-      <?php
-    }
-    else {
-      $alink = "<a href='{$link2}?guestbook_curr_link={$i}'>$i</a> ";
-      print $alink;
-    }
+  $range = $page_last - $page_first;
+  // Creating an array of pages.
+  for ($i = 0; $i <= $range; $i++) {
+      $pages[$i] = (int) $page_first + $i;
   }
-  $y = $last + 1;
-  //Ellipsis.
-  if ($last < ceil($all / $lim) && ceil($all / $lim) - $last > 2) print "<a href='{$link2}?guestbook_curr_link={$y}'>...</a> ";
-  //Show last page.
-  $e = ceil($all / $lim);
-  if ($last < ceil($all / $lim)) {
-    print "<a href='{$link2}?guestbook_curr_link={$e}'>$e</a>";
-  }
-  $pos_page = ceil($all/$lim);
-  if ($curr_link >= $pos_page) {
-    $i_sled=$curr_link;
+  $pages['page'] = $page;
+  $pages['first'] = 1;
+  if ($page - 1 >= 1) {
+    $pages['previous'] = $page - 1;
   }
   else {
-    $i_sled = $curr_link + 1;
-    $sled = "<a href='{$link2}?guestbook_curr_link={$i_sled}'> -следующая- </a> ";
-    print $sled;
+    $pages['previous'] = 'do not show if string';
   }
-  $pos_page = ceil($all/$lim);
-  $posled = "<a href='{$link2}?guestbook_curr_link={$pos_page}'> -последняя- </a> ";
-  print $posled;
+  if ($page < $total_pages) {
+    $pages['next'] = $page + 1;
+  }
+  else {
+    $pages['next'] = 'do not show if string';
+  }
+  $pages['last'] = $total_pages;
+  // Output page array.
+  return $pages;
 }
