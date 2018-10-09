@@ -56,7 +56,12 @@ function guestbook_get_messages($order = 'DESC') {
   }
   $limit = ' LIMIT ' . $gt . ', 10';
   $query = mysqli_query(guestbook_sql_connect(), 'SELECT * FROM `share` ORDER BY id ' . $order . $limit);
-  return $query->fetch_all();
+  $messages = $query->fetch_all();
+  // Add user name to array.
+  for ($i = 0; $i < count($messages); $i++){
+    $messages[$i]['name'] = guestbook_get_name($messages[$i][3]);
+  }
+  return $messages;
 }
 
 /**
@@ -120,7 +125,8 @@ function guestbook_get_page() {
  *
  * This function is used for creation new messages and edit already existed.
  *
- * @param bool $new
+ * @param $uri
+ * The equivalent of Apache's $_SERVER['REQUEST_URI'] variable.
  */
 function guestbook_save_message($uri) {
   // Get info from header.
@@ -204,6 +210,7 @@ function guestbook_save_message($uri) {
  * Deletes messages.
  *
  * @param array $uri
+ * The equivalent of Apache's $_SERVER['REQUEST_URI'] variable.
  */
 function guestbook_delete_message($uri) {
   // Get info from header.

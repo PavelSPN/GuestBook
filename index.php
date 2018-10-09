@@ -18,4 +18,4 @@ require_once GUESTBOOK_ROOT . '/includes/guestbook.theme.inc';
 guestbook_session_start();
 guestbook_menu_handler();
 
-require_once GUESTBOOK_ROOT . '/templates/html.php';
+require_once GUESTBOOK_ROOT . '/templates/html.tpl.php';
