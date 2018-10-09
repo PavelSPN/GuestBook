@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * @file
+ * Includes messages window and input text area.
+ */
+
+?>
+<?php //Show messages block if user is not logged, otherwise - messages and text area. ?>
+  <div class="guestbook-messages">
+    <?php if ($variables['messages']): ?>
+      <?php foreach ($variables['messages'] as $message): ?>
+        <div class="btn-class"><?php print $message['name']; ?>
+          <?php print date( 'd.m.y H:i:s ', $message[1] ); ?>
+          <?php print "<br/>"; ?>
+          <?php print htmlspecialchars($message[2]); ?>
+        </div>
+        <?php if (isset($_COOKIE['guestbook_cookie_id']) && isset ($_SESSION['user'])): ?>
+          <?php if ($message[4] == $_SESSION['user']['session_cookie'] && $_COOKIE['guestbook_cookie_id'] == session_id() && $variables['is_logged']): ?>
+            <?php print "<a href='/?id={$message[0]}&edit=1&page={$_GET['page']}' class='push-button blue'> Редактировать </a> ";?>
+            <?php print "<a href='/message/delete/{$message[0]}/{$_GET['page']}' class='push-button red'> Удалить </a> "; ?>
+          <?php endif; ?>
+        <?php endif; ?>
+        <br />
+      <?php endforeach; ?>
+    <?php endif; ?>
+  </div>
+<?php if ($variables['is_logged']): ?>
+  <div class="textarea">
+    <form name="Guestbook_message_send" action="/message/save<?php if (isset ($_GET['edit'])) print "/{$_GET['id']}/{$_GET['page']}"; ?>" method="POST" >
+      <?php // Generate message for edit by id if the "edit" button is pressed. ?>
+      <?php if (isset($_GET['edit']) && $_GET['edit'] == 1): ?>
+        <?php if ($variables['messages']): ?>
+          <?php foreach ($variables['messages'] as $message): ?>
+            <?php if ($message[0] == $_GET['id']): ?>
+              <?php $message_for_edit = $message[2]; ?>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        <?php endif; ?>
+        <?php else: $message_for_edit = NULL; ?>
+      <?php endif; ?>
+        <textarea rows="5" cols="150" name="message"><?php print $message_for_edit; ?></textarea><br /><br />
+        <input type="submit" name="Guestbook_message_save" class='push-button red' value="Save" />
+    </form>
+    <?php // "Cancel" button if you do not need to edit message. ?>
+    <?php if (isset($_GET['edit']) && $_GET['edit'] == 1): ?>
+      <?php print "<a href='/?page={$_GET['page']}' class='push-button red'> Cancel </a> "; ?>
+    <?php endif; ?>
+  </div>
+<?php endif; ?>
